@@ -1,5 +1,15 @@
+import MemoForm from '@/components/MemoForm.vue';
 <template>
-  <div class="new">
-    <h1>new</h1>
-  </div>
+  <MemoForm />
 </template>
+
+<script>
+import MemoForm from "@/components/MemoForm.vue";
+
+export default {
+  name: "NewView",
+  components: {
+    MemoForm,
+  },
+};
+</script>
