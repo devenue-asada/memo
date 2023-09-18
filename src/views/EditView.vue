@@ -1,16 +1,20 @@
 import MemoForm from '@/components/MemoForm.vue';
 <template>
-  <MemoForm memo="" mode="新規作成" />
+  <MemoForm :memo="memo" mode="編集" />
 </template>
 
 <script>
 import MemoForm from "@/components/MemoForm.vue";
 
 export default {
-  name: "NewView",
+  name: "EditView",
   components: {
     MemoForm,
   },
-  computed: {},
+  computed: {
+    memo() {
+      return this.$store.getters.memo(parseInt(this.$route.params.id));
+    },
+  },
 };
 </script>

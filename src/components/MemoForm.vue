@@ -1,6 +1,6 @@
 <template>
   <div class="new">
-    <h1>新規登録</h1>
+    <h1>{{ this.mode }}</h1>
   </div>
   <input type="text" v-model="title" placeholder="タイトル" />
   <textarea name="" id="" cols="30" rows="10" v-model="content"></textarea>
@@ -12,10 +12,11 @@
 <script>
 export default {
   name: "MemoFrom",
+  props: ["memo", "mode"],
   data() {
     return {
-      title: "",
-      content: "",
+      title: this.memo.title,
+      content: this.memo.content,
     };
   },
   methods: {
@@ -24,6 +25,8 @@ export default {
         title: this.title,
         content: this.content,
       };
+      if (this.memo.id) memo.id = this.memo.id;
+
       this.$store.commit("save", memo);
       this.$router.push("/");
     },

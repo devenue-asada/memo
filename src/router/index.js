@@ -11,6 +11,11 @@ const routes = [
     name: "new",
     component: () => import("../views/NewView.vue"),
   },
+  {
+    path: "/edit/:id",
+    name: "edit",
+    component: () => import("../views/EditView.vue"),
+  },
 ];
 
 const router = createRouter({
